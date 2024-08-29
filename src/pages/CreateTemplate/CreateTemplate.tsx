@@ -29,7 +29,7 @@ export default function CreateTemplate() {
             <div className="row justify-content-center">
               <p className='text-center'>Please drag the sections into template area</p>
               {TEMPLATE_SECTIONS.map((template) => (
-                <div className="col-2 g-1">
+                <div className="col-2 g-1" key={template.value}>
                   <DraggableCard title={template.label} showArrow={false} id={template.value} />
                 </div>
               ))}
