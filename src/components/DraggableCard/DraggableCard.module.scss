@@ -1,0 +1,53 @@
+// DraggableCard.module.scss
+
+.draggableCard {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+  padding: 12px;
+  user-select: none;
+}
+
+.draggableCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.draggableCardContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.draggableCardTitle {
+  font-size: 14px;
+  margin: 0;
+}
+
+.draggableCardSubtitle {
+  font-size: 12px;
+  color: #6a737d;
+  margin: 4px 0 0 0;
+}
+
+.draggableCardArrow {
+  font-size: 12px;
+  color: #586069;
+  transition: transform 0.2s ease-in-out;
+
+  &.expanded {
+    transform: rotate(180deg);
+  }
+}
+
+.draggableCardBody {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e1e4e8;
+}
+
+.draggableCardDescription {
+  margin-bottom: 16px;
+}

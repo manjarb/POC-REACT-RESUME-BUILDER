@@ -1,0 +1,78 @@
+// utilities.scss
+
+// Define the range of spacing values (0 to 40)
+$spacing-range: 0, 5, 10, 15, 20, 25, 30, 35, 40;
+
+// Generate margin classes
+@each $size in $spacing-range {
+  .m-t-#{$size} {
+    margin-top: #{$size}px;
+  }
+  .m-r-#{$size} {
+    margin-right: #{$size}px;
+  }
+  .m-b-#{$size} {
+    margin-bottom: #{$size}px;
+  }
+  .m-l-#{$size} {
+    margin-left: #{$size}px;
+  }
+  .m-x-#{$size} {
+    margin-left: #{$size}px;
+    margin-right: #{$size}px;
+  }
+  .m-y-#{$size} {
+    margin-top: #{$size}px;
+    margin-bottom: #{$size}px;
+  }
+  .m-#{$size} {
+    margin: #{$size}px;
+  }
+}
+
+// Generate padding classes
+@each $size in $spacing-range {
+  .p-t-#{$size} {
+    padding-top: #{$size}px;
+  }
+  .p-r-#{$size} {
+    padding-right: #{$size}px;
+  }
+  .p-b-#{$size} {
+    padding-bottom: #{$size}px;
+  }
+  .p-l-#{$size} {
+    padding-left: #{$size}px;
+  }
+  .p-x-#{$size} {
+    padding-left: #{$size}px;
+    padding-right: #{$size}px;
+  }
+  .p-y-#{$size} {
+    padding-top: #{$size}px;
+    padding-bottom: #{$size}px;
+  }
+  .p-#{$size} {
+    padding: #{$size}px;
+  }
+}
+
+// Define a range of max-width values (in pixels)
+$max-widths: 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600;
+
+// Generate max-width utility classes without 'px' in the class name
+@each $width in $max-widths {
+  .max-w-#{$width} {
+    max-width: #{$width}px;
+  }
+}
+
+// Optional: A class for full width (100%)
+.max-w-full {
+  max-width: 100%;
+}
+
+.m-h-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
