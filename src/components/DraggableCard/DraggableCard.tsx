@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import classes from './DraggableCard.module.scss';
 import Button from '../Button/Button';
+import { useDrag, useDrop } from 'react-dnd';
+import { DragElement } from '../../common/constants';
 
 interface IDraggableCardProps {
   title: string;
@@ -13,6 +15,7 @@ interface IDraggableCardProps {
   onDragStart?: (e: React.DragEvent<HTMLDivElement>) => void;
   children?: React.ReactNode;
   onDeleteClick?: () => void;
+  onMoveCard: (dragId: string, targetId: string) => void
 }
 
 export default function DraggableCard({
@@ -24,9 +27,34 @@ export default function DraggableCard({
   defaultExpanded = false,
   onToggleExpand,
   onDeleteClick,
+  onMoveCard,
   children,
 }: IDraggableCardProps) {
   const [expanded, setExpanded] = useState(defaultExpanded);
+  const [{ isDragging }, drag] = useDrag(
+    () => ({
+      type: DragElement.SECTION,
+      item: { id },
+      collect: (monitor) => ({
+        isDragging: monitor.isDragging(),
+      }),
+
+    }),
+    [id],
+  );
+
+  const [, drop] = useDrop(
+    () => ({
+      accept: DragElement.SECTION,
+      canDrop: () => false,
+      hover: ({ id: dragId }: {id: string}) => {
+        if (dragId !== id) {
+          onMoveCard(dragId, id);
+        }
+      },
+    }),
+    [id, onMoveCard],
+  );
 
   const toggleExpand = () => {
     const newExpanded = !expanded;
@@ -42,10 +70,12 @@ export default function DraggableCard({
     }
   };
 
+
   return (
     <div
+      ref={(node) => drag(drop(node))}
       id={id}
-      className={classes.draggableCard}
+      className={`${classes.draggableCard} ${isDragging ? classes.dragging : ''}`}
     >
       <div className={classes.draggableCardHeader} onClick={toggleExpand}>
         <div className={classes.draggableCardContent}>

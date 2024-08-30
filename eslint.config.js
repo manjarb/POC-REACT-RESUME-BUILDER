@@ -29,6 +29,7 @@ export default tseslint.config(
       'comma-dangle': ['error', 'always-multiline'], // Enforce trailing commas in multiline objects/arrays
       'eol-last': ['error', 'always'], // Enforce newline at the end of files
       'object-curly-spacing': ['error', 'always'], // Enforce spacing inside curly braces
+      "react-hooks/exhaustive-deps": "warn"
     },
   },
 )

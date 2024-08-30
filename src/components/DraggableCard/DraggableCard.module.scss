@@ -8,6 +8,10 @@
   transition: box-shadow 0.2s ease-in-out;
   padding: 12px;
   user-select: none;
+
+  &.dragging {
+    opacity: 0.5;
+  }
 }
 
 .draggableCardHeader {

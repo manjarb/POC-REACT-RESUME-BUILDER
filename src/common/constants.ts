@@ -13,11 +13,13 @@ export enum FontFamily {
 }
 
 export enum TemplateSection {
-  EXPERIENCES = 'experiences',
-  EDUCATION = 'education',
-  CERTIFICATIONS = 'certifications',
-  REFERENCES = 'references',
-  SKILLS = 'skills',
+  EXPERIENCES = "experiences",
+  EDUCATION = "education",
+  CERTIFICATIONS = "certifications",
+  REFERENCES = "references",
+  SKILLS = "skills",
+  CONTACT = "contact",
+  DESCRIPTION = 'description'
 }
 
 export enum TemplateArea {
@@ -38,3 +40,7 @@ export const FONT_FAMILIES = [
   { value: FontFamily.COURIER_NEW, label: FontFamily.COURIER_NEW },
   { value: FontFamily.VERDANA, label: FontFamily.VERDANA },
 ];
+
+export enum DragElement {
+  SECTION = 'section'
+}
