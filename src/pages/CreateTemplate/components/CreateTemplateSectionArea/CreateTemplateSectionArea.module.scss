@@ -1,11 +1,8 @@
-// TemplateBuilderArea.module.scss
-
-.templateBuilderArea {
+.container {
   border: 2px dashed #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
   padding: 20px;
-  text-align: center;
   transition: background-color 0.3s ease-in-out;
   min-height: 300px;
 

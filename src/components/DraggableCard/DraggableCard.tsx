@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import classes from './DraggableCard.module.scss';
+import Button from '../Button/Button';
 
 interface IDraggableCardProps {
   title: string;
   id: string;
   subtitle?: string;
   showArrow?: boolean;
+  showDelete?: boolean;
   defaultExpanded?: boolean;
   onToggleExpand?: (expanded: boolean) => void;
   onDragStart?: (e: React.DragEvent<HTMLDivElement>) => void;
   children?: React.ReactNode;
+  onDeleteClick?: () => void;
 }
 
 export default function DraggableCard({
@@ -17,9 +20,10 @@ export default function DraggableCard({
   id,
   subtitle,
   showArrow = true,
+  showDelete = true,
   defaultExpanded = false,
   onToggleExpand,
-  onDragStart,
+  onDeleteClick,
   children,
 }: IDraggableCardProps) {
   const [expanded, setExpanded] = useState(defaultExpanded);
@@ -32,8 +36,17 @@ export default function DraggableCard({
     }
   };
 
+  const onDelete = () => {
+    if (onDeleteClick) {
+      onDeleteClick();
+    }
+  };
+
   return (
-    <div id={id} className={classes.draggableCard} draggable onDragStart={onDragStart}>
+    <div
+      id={id}
+      className={classes.draggableCard}
+    >
       <div className={classes.draggableCardHeader} onClick={toggleExpand}>
         <div className={classes.draggableCardContent}>
           <h3 className={classes.draggableCardTitle}>{title}</h3>
@@ -41,6 +54,11 @@ export default function DraggableCard({
             <p className={classes.draggableCardSubtitle}>{subtitle}</p>
           )}
         </div>
+        {showDelete && (
+          <Button size="sm" variant="danger" onClick={onDelete}>
+            Remove
+          </Button>
+        )}
         {showArrow && (
           <div
             className={`${classes.draggableCardArrow} ${
@@ -51,10 +69,8 @@ export default function DraggableCard({
           </div>
         )}
       </div>
-      {expanded && (children) && (
-        <div className={classes.draggableCardBody}>
-          {children}
-        </div>
+      {expanded && children && (
+        <div className={classes.draggableCardBody}>{children}</div>
       )}
     </div>
   );

@@ -12,6 +12,19 @@ export enum FontFamily {
   VERDANA = 'Verdana',
 }
 
+export enum TemplateSection {
+  EXPERIENCES = 'experiences',
+  EDUCATION = 'education',
+  CERTIFICATIONS = 'certifications',
+  REFERENCES = 'references',
+  SKILLS = 'skills',
+}
+
+export enum TemplateArea {
+  LEFT = 'leftArea',
+  RIGHT = 'rightArea'
+}
+
 export const TEMPLATE_OPTIONS = [
   { value: TemplateOption.BASIC, label: 'Basic Template' },
   { value: TemplateOption.MODERN, label: 'Modern Template' },
@@ -24,27 +37,4 @@ export const FONT_FAMILIES = [
   { value: FontFamily.GEORGIA, label: FontFamily.GEORGIA },
   { value: FontFamily.COURIER_NEW, label: FontFamily.COURIER_NEW },
   { value: FontFamily.VERDANA, label: FontFamily.VERDANA },
-];
-
-export const TEMPLATE_SECTIONS = [
-  {
-    value: 'experiences',
-    label: 'Experiences',
-  },
-  {
-    value: 'education',
-    label: 'Education',
-  },
-  {
-    value: 'certifications',
-    label: 'Certifications',
-  },
-  {
-    value: 'references',
-    label: 'References',
-  },
-  {
-    value: 'skills',
-    label: 'Skills',
-  },
 ];

@@ -2,6 +2,7 @@ interface IButton {
   type?: 'button' | 'submit' | 'reset';
   className?: string;
   onClick?: () => void;
+  size?: 'sm' | 'lg';
   variant?:
     | 'primary'
     | 'secondary'
@@ -20,6 +21,7 @@ export default function Button({
   type = 'button',
   className = '',
   variant = 'primary',
+  size,
   onClick = () => undefined,
   children,
   disabled = false,
@@ -27,7 +29,7 @@ export default function Button({
   return (
     <button
       type={type}
-      className={`btn btn-${variant} ${className}`}
+      className={`btn btn-${variant} ${className} ${size ? `btn-${size}` : ''}`}
       onClick={onClick}
       disabled={disabled}
     >

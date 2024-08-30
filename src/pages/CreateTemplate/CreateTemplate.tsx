@@ -1,12 +1,10 @@
-import { TEMPLATE_SECTIONS } from '../../common/constants';
 import Select from '../../components/Select/Select';
-import DraggableCard from '../../components/DraggableCard/DraggableCard';
 import { useCreateTemplate } from './useCreateTemplate';
-import TemplateBuilderArea from '../../components/TemplateBuilderArea/TemplateBuilderArea';
+import TemplateBuilderArea from './components/TemplateBuilderArea/TemplateBuilderArea';
 
 export default function CreateTemplate() {
   const { selectedTemplate, handleTemplateChange, TEMPLATE_OPTIONS } =
-  useCreateTemplate();
+    useCreateTemplate();
 
   return (
     <div className="p-t-30">
@@ -26,15 +24,7 @@ export default function CreateTemplate() {
                 />
               </div>
             </div>
-            <div className="row justify-content-center">
-              <p className='text-center'>Please drag the sections into template area</p>
-              {TEMPLATE_SECTIONS.map((template) => (
-                <div className="col-2 g-1" key={template.value}>
-                  <DraggableCard title={template.label} showArrow={false} id={template.value} />
-                </div>
-              ))}
-            </div>
-            <div className='m-t-15'>
+            <div className="m-t-15">
               <TemplateBuilderArea />
             </div>
           </div>
