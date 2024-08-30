@@ -1,20 +1,20 @@
-import { useDrop } from 'react-dnd';
 import classes from './CreateTemplateSectionArea.module.scss';
 import Button from '../../../../components/Button/Button';
 import { capitalizeFirstLetter } from '../../../../common/utils/string.util';
 import DraggableCard from '../../../../components/DraggableCard/DraggableCard';
-import { DragElement, TemplateArea } from '../../../../common/constants';
 import { useCreateTemplateSectionArea } from './useCreateTemplateSectionArea';
+import { useEffect } from 'react';
 
 interface ICreateTemplateSectionAreaProps {
   areaName: string;
-  templateArea: TemplateArea;
   availableSections: string[];
+  onSelectedSectionsChange: (section: string[]) => void;
 }
 
 export default function CreateTemplateSectionArea({
   areaName,
   availableSections,
+  onSelectedSectionsChange,
 }: ICreateTemplateSectionAreaProps) {
   const {
     sections,
@@ -22,15 +22,12 @@ export default function CreateTemplateSectionArea({
     onAddSection,
     onDeleteSection,
     onMoveCard,
+    cardDrop,
   } = useCreateTemplateSectionArea({ availableSections });
 
-  const [, cardDrop] = useDrop(
-    () => ({
-      accept: DragElement.SECTION,
-      hover: () => {},
-    }),
-    [selectedSections],
-  );
+  useEffect(() => {
+    onSelectedSectionsChange(selectedSections);
+  }, [selectedSections]);
 
   const SelectSectionList = () => {
     return (

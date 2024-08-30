@@ -1,31 +1,24 @@
-import Select from '../../components/Select/Select';
 import { useCreateTemplate } from './useCreateTemplate';
 import TemplateBuilderArea from './components/TemplateBuilderArea/TemplateBuilderArea';
+import TemplateForm from './components/TemplateForm/TemplateForm';
 
 export default function CreateTemplate() {
-  const { selectedTemplate, handleTemplateChange, TEMPLATE_OPTIONS } =
-    useCreateTemplate();
+  const {
+    onUpdateTemplateSectionDataDetail,
+    onUpdateFormValue,
+  } = useCreateTemplate();
 
   return (
     <div className="p-t-30">
       <div className="row">
         <div className="col">
           <div className="p-l-20">
-            <h2 className="text-center m-b-15">Create Template</h2>
-            <div className="text-center">
-              <p>Select Template</p>
-              <div className="max-w-300 m-h-auto">
-                <Select
-                  options={TEMPLATE_OPTIONS}
-                  value={selectedTemplate}
-                  onChange={handleTemplateChange}
-                  className="mb-3"
-                  placeholder="Choose a template"
-                />
-              </div>
-            </div>
-            <div className="m-t-15">
-              <TemplateBuilderArea />
+            <h3 className="text-center m-b-15">Create Template</h3>
+            <TemplateForm onUpdateFormValue={onUpdateFormValue} />
+            <div className="m-t-15 p-b-30">
+              <TemplateBuilderArea
+                onUpdateTemplateSectionData={onUpdateTemplateSectionDataDetail}
+              />
             </div>
           </div>
         </div>

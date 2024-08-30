@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { arrayMove } from "../../../../common/utils/array.util";
+import { useState } from 'react';
+import { arrayMove } from '../../../../common/utils/array.util';
+import { DragElement } from '../../../../common/constants';
+import { useDrop } from 'react-dnd';
 
 interface UseCreateTemplateSectionAreaProps {
   availableSections: string[];
@@ -10,7 +12,7 @@ export function useCreateTemplateSectionArea({
   availableSections,
 }: UseCreateTemplateSectionAreaProps) {
   const [sections, setSections] = useState<Record<string, string>>(
-    availableSections.reduce((a, v) => ({ ...a, [v]: v }), {})
+    availableSections.reduce((a, v) => ({ ...a, [v]: v }), {}),
   );
 
   const [selectedSections, setSelectedSections] = useState<string[]>([]);
@@ -46,12 +48,22 @@ export function useCreateTemplateSectionArea({
   const onMoveCard = (dragId: string, targetId: string) => {
     setSelectedSections((prev) => {
       const newSections = [...prev];
-      const oldIndex = prev.findIndex(p => p === dragId)
+      const oldIndex = prev.findIndex(p => p === dragId);
       const newIndex = prev.findIndex((p) => p === targetId);
-      arrayMove(newSections, oldIndex, newIndex)
-      return newSections
+      arrayMove(newSections, oldIndex, newIndex);
+      return newSections;
     });
   };
+
+  const [, cardDrop] = useDrop(
+    () => ({
+      accept: DragElement.SECTION,
+      hover: () => {},
+    }),
+    [selectedSections],
+  );
+
+
 
   return {
     sections,
@@ -59,5 +71,6 @@ export function useCreateTemplateSectionArea({
     onAddSection,
     onDeleteSection,
     onMoveCard,
+    cardDrop,
   };
 }

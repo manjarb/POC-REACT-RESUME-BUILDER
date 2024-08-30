@@ -13,12 +13,12 @@ export enum FontFamily {
 }
 
 export enum TemplateSection {
-  EXPERIENCES = "experiences",
-  EDUCATION = "education",
-  CERTIFICATIONS = "certifications",
-  REFERENCES = "references",
-  SKILLS = "skills",
-  CONTACT = "contact",
+  EXPERIENCES = 'experiences',
+  EDUCATION = 'education',
+  CERTIFICATIONS = 'certifications',
+  REFERENCES = 'references',
+  SKILLS = 'skills',
+  CONTACT = 'contact',
   DESCRIPTION = 'description'
 }
 
@@ -43,4 +43,39 @@ export const FONT_FAMILIES = [
 
 export enum DragElement {
   SECTION = 'section'
+}
+
+export const colorRegex = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+
+export enum ErrorMessage {
+  INVALID_COLOR = 'Invalid color format',
+}
+
+export enum ColorCode {
+  WHITE = '#FFF',
+  BLACK = '#000000',
+  DARK_BLUE = '#082A4D',
+}
+
+export interface ITemplateSectionData {
+  left: string[]
+  right: string[]
+}
+
+
+export interface ITemplateFormData {
+  baseFontSize: number;
+  fontFamily: string;
+  titleColor: string;
+  rightColumnBgColor: string;
+  templateOption: string;
+  headerPadding: number;
+  lineSpacing: number;
+  headerBackgroundColor: string;
+  headerTextColor: string;
+}
+
+
+export interface ITemplateSectionDataDetail extends ITemplateSectionData {
+  formValue: ITemplateFormData;
 }

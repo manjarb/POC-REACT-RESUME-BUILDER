@@ -1,14 +1,18 @@
 import classes from './TemplateBuilderArea.module.scss';
 import CreateTemplateSectionArea from '../CreateTemplateSectionArea/CreateTemplateSectionArea';
-import { TemplateArea, TemplateSection } from '../../../../common/constants';
+import { ITemplateSectionData, TemplateSection } from '../../../../common/constants';
+import useTemplateBuilderArea from './useTemplateBuilderArea';
 
-interface TemplateBuilderAreaProps {}
+interface TemplateBuilderAreaProps {
+  onUpdateTemplateSectionData: (data: ITemplateSectionData) => void;
+}
 
-export default function TemplateBuilderArea({}: TemplateBuilderAreaProps) {
+export default function TemplateBuilderArea({ onUpdateTemplateSectionData }: TemplateBuilderAreaProps) {
+  const { onUpdateLeftSectionData, onUpdateRightSectionData } = useTemplateBuilderArea({ onUpdateTemplateSectionData });
+
   return (
     <div className={`${classes.templateBuilderArea}`}>
       <CreateTemplateSectionArea
-        templateArea={TemplateArea.LEFT}
         areaName="Left Section"
         availableSections={[
           TemplateSection.CONTACT,
@@ -19,10 +23,10 @@ export default function TemplateBuilderArea({}: TemplateBuilderAreaProps) {
           TemplateSection.REFERENCES,
           TemplateSection.SKILLS,
         ]}
+        onSelectedSectionsChange={onUpdateLeftSectionData}
       />
       <div className="m-t-15">
         <CreateTemplateSectionArea
-          templateArea={TemplateArea.RIGHT}
           areaName="RIGHT Section"
           availableSections={[
             TemplateSection.CONTACT,
@@ -33,6 +37,7 @@ export default function TemplateBuilderArea({}: TemplateBuilderAreaProps) {
             TemplateSection.REFERENCES,
             TemplateSection.SKILLS,
           ]}
+          onSelectedSectionsChange={onUpdateRightSectionData}
         />
       </div>
     </div>

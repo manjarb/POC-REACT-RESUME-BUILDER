@@ -1,3 +1,5 @@
+import { UseFormRegister } from 'react-hook-form';
+
 interface IOption {
   value: string;
   label: string;
@@ -5,36 +7,53 @@ interface IOption {
 
 interface ISelectProps {
   options: IOption[];
-  value: string;
-  onChange: (value: string) => void;
+  name: string;
+  label?: string;
+  register: UseFormRegister<any>;
+  error?: string;
   className?: string;
   disabled?: boolean;
   placeholder?: string;
+  labelClass?: string;
+  inputWrapperClass?: string;
+
 }
 
-export default function Select({
+export function Select({
   options,
-  value,
-  onChange,
+  name,
+  label,
+  register,
+  error,
   className = '',
   disabled = false,
   placeholder = 'Select an option',
+  labelClass = '',
+  inputWrapperClass = '',
 }: ISelectProps) {
   return (
-    <select
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      className={`form-select ${className}`}
-      disabled={disabled}
-    >
-      <option value="" disabled>
-        {placeholder}
-      </option>
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.label}
-        </option>
-      ))}
-    </select>
+    <div className={`form-group ${className}`}>
+      <label htmlFor={name} className={labelClass}>
+        {label}
+      </label>
+      <div className={inputWrapperClass}>
+        <select
+          id={name}
+          className={`form-select ${className} ${error ? 'is-invalid' : ''}`}
+          {...register(name)}
+          disabled={disabled}
+        >
+          <option value="" disabled>
+            {placeholder}
+          </option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        {error && <p className="text-danger">{error}</p>}
+      </div>
+    </div>
   );
 }
