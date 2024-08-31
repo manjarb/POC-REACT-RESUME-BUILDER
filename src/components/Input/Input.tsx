@@ -2,7 +2,7 @@ import { UseFormRegister } from 'react-hook-form';
 
 interface InputProps {
   label: string;
-  type: string;
+  type?: string;
   name: string;
   // eslint-disable-next-line
   register: UseFormRegister<any>;

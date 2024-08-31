@@ -1,38 +1,44 @@
-import { useRef, useState } from 'react';
-import { ITemplateFormData, ITemplateSectionDataDetail, TEMPLATE_OPTIONS, TemplateOption } from '../../common/constants';
+import { useState } from 'react';
+import {
+  ITemplateFormData,
+  ITemplateSectionData,
+  ITemplateSectionDataDetail,
+  TEMPLATE_OPTIONS,
+  TemplateOption,
+} from '../../common/constants';
 
 export function useCreateTemplate() {
   const [selectedTemplate, setSelectedTemplate] = useState<TemplateOption | ''>(
     TemplateOption.BASIC,
   );
 
-  const templateSectionDataDetail = useRef<Partial<ITemplateSectionDataDetail>>(
-    {},
-  );
+  const [templateSectionDataDetail, setTemplateSectionDataDetail] = useState<ITemplateSectionDataDetail>({
+    formValue: {},
+    left: [],
+    right: [],
+  });
 
   const handleTemplateChange = (value: string) => {
     setSelectedTemplate(value as TemplateOption);
   };
 
-  const onUpdateTemplateSectionDataDetail = (data: Partial<ITemplateSectionDataDetail> | null) => {
+  const onUpdateTemplateSectionDataDetail = (
+    data: ITemplateSectionData | null,
+  ) => {
     if (data) {
-      templateSectionDataDetail.current = {
-        ...templateSectionDataDetail.current,
-        ...data,
-      };
+      setTemplateSectionDataDetail(prev => {
+        const newData = { ...prev, ...data };
+        return newData;
+      });
     }
   };
 
   const onUpdateFormValue = (data: ITemplateFormData) => {
-    templateSectionDataDetail.current = {
-      ...templateSectionDataDetail.current,
-      formValue: { ...data },
-    };
-
-
+    setTemplateSectionDataDetail((prev) => {
+      const newData = { ...prev, formValue:{ ...data } };
+      return newData;
+    });
   };
-
-
 
   return {
     selectedTemplate,
@@ -40,5 +46,6 @@ export function useCreateTemplate() {
     onUpdateTemplateSectionDataDetail,
     onUpdateFormValue,
     TEMPLATE_OPTIONS,
+    templateSectionDataDetail,
   };
 }

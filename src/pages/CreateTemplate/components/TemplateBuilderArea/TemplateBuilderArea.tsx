@@ -15,13 +15,14 @@ export default function TemplateBuilderArea({ onUpdateTemplateSectionData }: Tem
       <CreateTemplateSectionArea
         areaName="Left Section"
         availableSections={[
-          TemplateSection.CONTACT,
+          // TODO: Enable these options when be have a proper template
+          // TemplateSection.CONTACT,
           TemplateSection.DESCRIPTION,
           TemplateSection.EXPERIENCES,
           TemplateSection.EDUCATION,
-          TemplateSection.CERTIFICATIONS,
-          TemplateSection.REFERENCES,
-          TemplateSection.SKILLS,
+          // TemplateSection.CERTIFICATIONS,
+          // TemplateSection.REFERENCES,
+          // TemplateSection.SKILLS,
         ]}
         onSelectedSectionsChange={onUpdateLeftSectionData}
       />
@@ -29,12 +30,12 @@ export default function TemplateBuilderArea({ onUpdateTemplateSectionData }: Tem
         <CreateTemplateSectionArea
           areaName="RIGHT Section"
           availableSections={[
-            TemplateSection.CONTACT,
-            TemplateSection.DESCRIPTION,
-            TemplateSection.EXPERIENCES,
-            TemplateSection.EDUCATION,
+            // TemplateSection.CONTACT,
+            // TemplateSection.DESCRIPTION,
+            // TemplateSection.EXPERIENCES,
+            // TemplateSection.EDUCATION,
             TemplateSection.CERTIFICATIONS,
-            TemplateSection.REFERENCES,
+            // TemplateSection.REFERENCES,
             TemplateSection.SKILLS,
           ]}
           onSelectedSectionsChange={onUpdateRightSectionData}

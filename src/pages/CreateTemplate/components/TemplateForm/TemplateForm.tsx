@@ -1,4 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { generate } from 'random-words';
+
 import * as Yup from 'yup';
 import {
   ColorCode,
@@ -18,6 +20,7 @@ const stringField = Yup.string().required('This field is required');
 const numberField = Yup.number().required('This field is required');
 
 const validationSchema = Yup.object().shape({
+  templateName: stringField,
   baseFontSize: numberField,
   fontFamily: stringField,
   titleColor: stringField.matches(colorRegex, 'Invalid color format'),
@@ -48,13 +51,14 @@ export default function TemplateForm({
     resolver: yupResolver(validationSchema),
     mode: 'all',
     defaultValues: {
-      baseFontSize: 14,
+      templateName: `Template ${generate() as string}`,
+      baseFontSize: 12,
       fontFamily: FontFamily.ARIAL,
-      titleColor: ColorCode.BLACK,
+      titleColor: ColorCode.DARK_BLUE,
       rightColumnBgColor: ColorCode.DARK_BLUE,
       templateOption: TemplateOption.BASIC,
       headerPadding: 20,
-      lineSpacing: 1,
+      lineSpacing: 1.25,
       headerBackgroundColor: ColorCode.WHITE,
       headerTextColor: ColorCode.BLACK,
       watermarkUrl: undefined,
@@ -78,7 +82,16 @@ export default function TemplateForm({
   return (
     <form className="form-horizontal">
       <div className="row">
-        <div className="col-sm-6 m-b-15">
+        <div className="col-sm-4 m-b-15">
+          <Input
+            label="Template Name"
+            name="templateName"
+            register={register}
+            error={errors.templateName?.message}
+          />
+        </div>
+
+        <div className="col-sm-4 m-b-15">
           <Select
             label="Template Option"
             name="templateOption"
@@ -87,7 +100,7 @@ export default function TemplateForm({
             error={errors.templateOption?.message}
           />
         </div>
-        <div className="col-sm-6 m-b-15">
+        <div className="col-sm-4 m-b-15">
           <Input
             label="Base Font Size (px)"
             type="number"
