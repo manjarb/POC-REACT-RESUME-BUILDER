@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+
 import { ITemplateSectionData } from '../../../../common/constants';
 
 interface IUseTemplateBuilderAreaProps {

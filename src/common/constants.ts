@@ -59,6 +59,10 @@ export enum ColorCode {
   DARK_BLUE = '#082A4D',
 }
 
+export enum StorageKey {
+  TEMPLATES = 'templates'
+}
+
 export interface ITemplateSectionData {
   left: string[];
   right: string[];
@@ -80,6 +84,10 @@ export interface ITemplateFormData {
 
 export interface ITemplateSectionDataDetail extends ITemplateSectionData {
   formValue: Partial<ITemplateFormData>;
+}
+
+export interface ITemplateSectionDataDetailSave extends ITemplateSectionDataDetail {
+  id: string
 }
 
 export interface IUserExperience {

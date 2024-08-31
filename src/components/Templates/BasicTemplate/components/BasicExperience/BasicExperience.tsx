@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from '@react-pdf/renderer';
 import { useMemo } from 'react';
-import HRLine from '../../../components/HRLine/HRLine';
+
 import { IUserExperience } from '../../../../../common/constants';
+import HRLine from '../../../components/HRLine/HRLine';
 
 interface IBasicExperienceProps {
   baseFontSize: number;

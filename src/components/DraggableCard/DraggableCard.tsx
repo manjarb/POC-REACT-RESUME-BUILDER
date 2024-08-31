@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import classes from './DraggableCard.module.scss';
-import Button from '../Button/Button';
 import { useDrag, useDrop } from 'react-dnd';
+
 import { DragElement } from '../../common/constants';
+import Button from '../Button/Button';
+
+import classes from './DraggableCard.module.scss';
 
 interface IDraggableCardProps {
   title: string;

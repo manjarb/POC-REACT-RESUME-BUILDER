@@ -1,7 +1,9 @@
-import classes from './TemplateBuilderArea.module.scss';
-import CreateTemplateSectionArea from '../CreateTemplateSectionArea/CreateTemplateSectionArea';
 import { ITemplateSectionData, TemplateSection } from '../../../../common/constants';
+import CreateTemplateSectionArea from '../CreateTemplateSectionArea/CreateTemplateSectionArea';
+
 import useTemplateBuilderArea from './useTemplateBuilderArea';
+
+import classes from './TemplateBuilderArea.module.scss';
 
 interface TemplateBuilderAreaProps {
   onUpdateTemplateSectionData: (data: ITemplateSectionData) => void;

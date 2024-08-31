@@ -1,7 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { generate } from 'random-words';
-
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
+
 import {
   ColorCode,
   colorRegex,
@@ -11,10 +13,8 @@ import {
   TEMPLATE_OPTIONS,
   TemplateOption,
 } from '../../../../common/constants';
-import { useForm } from 'react-hook-form';
 import { Input } from '../../../../components/Input/Input';
 import { Select } from '../../../../components/Select/Select';
-import { useEffect } from 'react';
 
 const stringField = Yup.string().required('This field is required');
 const numberField = Yup.number().required('This field is required');

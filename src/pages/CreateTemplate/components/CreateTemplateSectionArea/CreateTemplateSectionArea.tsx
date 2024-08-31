@@ -1,9 +1,12 @@
-import classes from './CreateTemplateSectionArea.module.scss';
-import Button from '../../../../components/Button/Button';
-import { capitalizeFirstLetter } from '../../../../common/utils/string.util';
-import DraggableCard from '../../../../components/DraggableCard/DraggableCard';
-import { useCreateTemplateSectionArea } from './useCreateTemplateSectionArea';
 import { useEffect } from 'react';
+
+import { capitalizeFirstLetter } from '../../../../common/utils/string.util';
+import Button from '../../../../components/Button/Button';
+import DraggableCard from '../../../../components/DraggableCard/DraggableCard';
+
+import { useCreateTemplateSectionArea } from './useCreateTemplateSectionArea';
+
+import classes from './CreateTemplateSectionArea.module.scss';
 
 interface ICreateTemplateSectionAreaProps {
   areaName: string;

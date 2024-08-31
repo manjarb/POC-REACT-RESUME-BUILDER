@@ -1,4 +1,5 @@
 import { View } from '@react-pdf/renderer';
+
 import { ColorCode } from '../../../../common/constants';
 
 interface IHRLineProps {

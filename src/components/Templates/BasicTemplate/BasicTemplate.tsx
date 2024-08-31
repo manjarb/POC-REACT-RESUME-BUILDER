@@ -9,6 +9,7 @@ import {
   View,
 } from '@react-pdf/renderer';
 import { useMemo } from 'react';
+
 import {
   ColorCode,
   FontFamily,
@@ -16,16 +17,18 @@ import {
   IUserData,
   TemplateSection,
 } from '../../../common/constants';
+import IconBox from '../components/IconBox/IconBox';
 import { useTemplateLayout } from '../hooks/useTemplateLayout/useTemplateLayout';
+
+import BasicCertification from './components/BasicCertification/BasicCertification';
+import BasicEducation from './components/BasicEducation/BasicEducation';
+import BasicExperience from './components/BasicExperience/BasicExperience';
+import BasicSkill from './components/BasicSkill/BasicSkill';
+import BasicSummary from './components/BasicSummary/BasicSummary';
+
 import EmailIcon from '/assets/icons/email_icon.png';
 import LinkIcon from '/assets/icons/link_icon.png';
 import LocationIcon from '/assets/icons/location_icon.png';
-import IconBox from '../components/IconBox/IconBox';
-import BasicSummary from './components/BasicSummary/BasicSummary';
-import BasicExperience from './components/BasicExperience/BasicExperience';
-import BasicEducation from './components/BasicEducation/BasicEducation';
-import BasicCertification from './components/BasicCertification/BasicCertification';
-import BasicSkill from './components/BasicSkill/BasicSkill';
 // import Arial from '../../../assets/fonts/arial/ARIAL.TTF';
 // import BoldArial from '../fonts/arial/ARIALBD.TTF';
 

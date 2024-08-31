@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { arrayMove } from '../../../../common/utils/array.util';
-import { DragElement } from '../../../../common/constants';
 import { useDrop } from 'react-dnd';
+
+import { DragElement } from '../../../../common/constants';
+import { arrayMove } from '../../../../common/utils/array.util';
 
 interface UseCreateTemplateSectionAreaProps {
   availableSections: string[];

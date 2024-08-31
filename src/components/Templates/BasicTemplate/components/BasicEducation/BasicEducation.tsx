@@ -1,6 +1,7 @@
-import { useMemo } from 'react';
-import { IUserEducation } from '../../../../../common/constants';
 import { StyleSheet, Text, View } from '@react-pdf/renderer';
+import { useMemo } from 'react';
+
+import { IUserEducation } from '../../../../../common/constants';
 import HRLine from '../../../components/HRLine/HRLine';
 
 interface IBasicEducationProps {

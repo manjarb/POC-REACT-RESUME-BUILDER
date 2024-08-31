@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from '@react-pdf/renderer';
-import { ColorCode, IUserSkill } from '../../../../../common/constants';
 import { useMemo } from 'react';
+
+import { ColorCode, IUserSkill } from '../../../../../common/constants';
 import HRLine from '../../../components/HRLine/HRLine';
 
 interface IBasicSkillProps {
@@ -32,7 +33,7 @@ export default function BasicSkill({ baseFontSize, skills }: IBasicSkillProps) {
     <View>
       <Text style={pageStyle.title}>Skill</Text>
       <HRLine color={ColorCode.WHITE}/>
-      {skills.map(({ name }) => <SkillBox name={name} />)}
+      {skills.map(({ name }) => <SkillBox key={name} name={name} />)}
     </View>
   );
 }
