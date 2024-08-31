@@ -9,13 +9,13 @@ export default function CreateTemplate() {
   } = useCreateTemplate();
 
   return (
-    <div className="p-t-30">
+    <div className="p-t-20">
       <div className="row">
         <div className="col">
           <div className="p-l-20">
             <h3 className="text-center m-b-15">Create Template</h3>
             <TemplateForm onUpdateFormValue={onUpdateFormValue} />
-            <div className="m-t-15 p-b-30">
+            <div className="m-t-15 p-b-50">
               <TemplateBuilderArea
                 onUpdateTemplateSectionData={onUpdateTemplateSectionDataDetail}
               />

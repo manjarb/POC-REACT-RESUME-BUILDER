@@ -4,6 +4,7 @@ interface InputProps {
   label: string;
   type: string;
   name: string;
+  // eslint-disable-next-line
   register: UseFormRegister<any>;
   error?: string;
   className?: string;

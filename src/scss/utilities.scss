@@ -1,7 +1,7 @@
 // utilities.scss
 
 // Define the range of spacing values (0 to 40)
-$spacing-range: 0, 5, 10, 15, 20, 25, 30, 35, 40;
+$spacing-range: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60;
 
 // Generate margin classes
 @each $size in $spacing-range {

@@ -73,6 +73,7 @@ export interface ITemplateFormData {
   lineSpacing: number;
   headerBackgroundColor: string;
   headerTextColor: string;
+  watermarkUrl?: string
 }
 
 

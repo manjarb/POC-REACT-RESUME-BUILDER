@@ -9,6 +9,7 @@ interface ISelectProps {
   options: IOption[];
   name: string;
   label?: string;
+  // eslint-disable-next-line
   register: UseFormRegister<any>;
   error?: string;
   className?: string;
@@ -16,7 +17,6 @@ interface ISelectProps {
   placeholder?: string;
   labelClass?: string;
   inputWrapperClass?: string;
-
 }
 
 export function Select({
@@ -33,7 +33,7 @@ export function Select({
 }: ISelectProps) {
   return (
     <div className={`form-group ${className}`}>
-      <label htmlFor={name} className={labelClass}>
+      <label htmlFor={name} className={`m-b-5 ${labelClass}`}>
         {label}
       </label>
       <div className={inputWrapperClass}>

@@ -30,6 +30,7 @@ const validationSchema = Yup.object().shape({
     'Invalid color format',
   ),
   headerTextColor: stringField.matches(colorRegex, 'Invalid color format'),
+  watermarkUrl: Yup.string(),
 });
 
 interface ITemplateFormProps {
@@ -56,6 +57,7 @@ export default function TemplateForm({
       lineSpacing: 1,
       headerBackgroundColor: ColorCode.WHITE,
       headerTextColor: ColorCode.BLACK,
+      watermarkUrl: undefined,
     },
   });
 
@@ -69,8 +71,6 @@ export default function TemplateForm({
 
   useEffect(() => {
     if (isValid) {
-      console.log('sendFormValues sendFormValues');
-      console.log(formValues, ' :formValues');
       sendFormValues(formValues);
     }
   }, [formValues, isValid]);
@@ -78,7 +78,7 @@ export default function TemplateForm({
   return (
     <form className="form-horizontal">
       <div className="row">
-        <div className="col-sm-4 m-b-15">
+        <div className="col-sm-6 m-b-15">
           <Select
             label="Template Option"
             name="templateOption"
@@ -87,7 +87,7 @@ export default function TemplateForm({
             error={errors.templateOption?.message}
           />
         </div>
-        <div className="col-sm-4 m-b-15">
+        <div className="col-sm-6 m-b-15">
           <Input
             label="Base Font Size (px)"
             type="number"
@@ -96,7 +96,7 @@ export default function TemplateForm({
             error={errors.baseFontSize?.message}
           />
         </div>
-        <div className="col-sm-4 m-b-15">
+        <div className="col-sm-6 m-b-15">
           <Select
             label="Font Family"
             name="fontFamily"
@@ -163,6 +163,16 @@ export default function TemplateForm({
             name="headerTextColor"
             register={register}
             error={errors.headerTextColor?.message}
+          />
+        </div>
+
+        <div className="col-sm-6 m-b-15">
+          <Input
+            label="Watermark Picture URL"
+            type="text"
+            name="watermarkUrl"
+            register={register}
+            error={errors.watermarkUrl?.message}
           />
         </div>
       </div>

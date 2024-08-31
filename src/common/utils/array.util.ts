@@ -1,7 +1,7 @@
 export function arrayMove(
   arr: unknown[],
   old_index: number,
-  new_index: number
+  new_index: number,
 ) {
   if (new_index >= arr.length) {
     let k = new_index - arr.length + 1;
