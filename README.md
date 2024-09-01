@@ -80,6 +80,8 @@ While the current version of the resume builder application provides core functi
 
 2. **Save and Edit Created Resume**: The application currently allows for the creation of resumes, but once a resume is created, there is no functionality to save it for future editing. Adding the ability to save and later edit created resumes would make the tool much more practical for users who need to update their resumes regularly.
 
+3. **Multiple Templates:** Due to time constraints, the application currently includes only one template option. As this is a proof-of-concept (POC) project, the next steps should involve expanding the template library to offer users a variety of resume formats and designs to choose from.
+
 These features represent potential areas for further development if the project continues, ensuring the application remains competitive and aligned with user expectations.
 
 
