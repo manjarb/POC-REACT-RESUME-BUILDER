@@ -20,7 +20,7 @@ describe('CreateTemplateSectionArea', () => {
 
   beforeEach(() => {
     vi.resetAllMocks();
-    (useCreateTemplateSectionArea as vi.Mock).mockReturnValue(
+    (useCreateTemplateSectionArea as any).mockReturnValue(
       mockUseCreateTemplateSectionArea,
     );
   });
@@ -58,7 +58,7 @@ describe('CreateTemplateSectionArea', () => {
   });
 
   it('calls onDeleteSection when a section is deleted', () => {
-    mockUseCreateTemplateSectionArea.selectedSections = ['experience'];
+    mockUseCreateTemplateSectionArea.selectedSections = ['experience'] as any;
     const { getByText } = render(
       <CreateTemplateSectionArea
         areaName="Left Column"
@@ -77,7 +77,7 @@ describe('CreateTemplateSectionArea', () => {
     mockUseCreateTemplateSectionArea.selectedSections = [
       'experience',
       'education',
-    ];
+    ] as any;
     const { getByText } = render(
       <CreateTemplateSectionArea
         areaName="Left Column"

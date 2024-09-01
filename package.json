@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "lint:fix": "eslint src/ --fix",
-    "test": "vitest"
+    "test": "vitest",
+    "docker:build": "docker build -t resume-builder .",
+    "docker:run": "docker run -p 3000:80 resume-builder"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

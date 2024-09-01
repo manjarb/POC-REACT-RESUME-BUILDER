@@ -20,7 +20,7 @@ describe('useCreateTemplate', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    (useNavigate as vi.Mock).mockReturnValue(mockNavigate);
+    (useNavigate as any).mockReturnValue(mockNavigate);
     localStorage.clear();
   });
 

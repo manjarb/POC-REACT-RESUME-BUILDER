@@ -15,7 +15,7 @@ describe('HomePage', () => {
 
   beforeEach(() => {
     vi.resetAllMocks();
-    (useHomePage as vi.Mock).mockReturnValue({
+    (useHomePage as any).mockReturnValue({
       savedTemplates: mockSavedTemplates,
     });
   });
@@ -35,7 +35,7 @@ describe('HomePage', () => {
   });
 
   it('renders with no saved templates', () => {
-    (useHomePage as vi.Mock).mockReturnValue({
+    (useHomePage as any).mockReturnValue({
       savedTemplates: [],
     });
 

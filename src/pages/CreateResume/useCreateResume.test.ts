@@ -33,7 +33,7 @@ describe('useCreateResume', () => {
 
   beforeEach(() => {
     vi.resetAllMocks();
-    (useTemplateData as vi.Mock).mockReturnValue(mockUseTemplateData);
+    (useTemplateData as any).mockReturnValue(mockUseTemplateData);
   });
 
   it('should initialize with default data', () => {

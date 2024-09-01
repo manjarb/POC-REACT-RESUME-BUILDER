@@ -16,7 +16,7 @@ describe('useHomePage', () => {
 
   beforeEach(() => {
     vi.resetAllMocks();
-    (useTemplateData as vi.Mock).mockReturnValue({
+    (useTemplateData as any).mockReturnValue({
       fetchSaveTemplates: mockFetchSaveTemplates,
       savedTemplates: mockSavedTemplates,
     });

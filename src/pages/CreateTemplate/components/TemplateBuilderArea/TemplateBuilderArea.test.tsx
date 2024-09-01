@@ -17,7 +17,7 @@ describe('TemplateBuilderArea', () => {
 
   beforeEach(() => {
     vi.resetAllMocks();
-    (useTemplateBuilderArea as vi.Mock).mockReturnValue(
+    (useTemplateBuilderArea as any).mockReturnValue(
       mockUseTemplateBuilderArea,
     );
   });

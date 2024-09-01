@@ -2,7 +2,6 @@ import { act,renderHook } from '@testing-library/react';
 import { useDrop } from 'react-dnd';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { DragElement } from '../../../../common/constants';
 import { arrayMove } from '../../../../common/utils/array/array.util';
 
 import { useCreateTemplateSectionArea } from './useCreateTemplateSectionArea';
@@ -20,7 +19,7 @@ vi.mock('../../../../common/utils/array/array.util', () => ({
 describe('useCreateTemplateSectionArea', () => {
   beforeEach(() => {
     vi.resetAllMocks();
-    (useDrop as vi.Mock).mockReturnValue([{}, vi.fn()]);
+    (useDrop as any).mockReturnValue([{}, vi.fn()]);
   });
 
   it('should initialize with available sections', () => {

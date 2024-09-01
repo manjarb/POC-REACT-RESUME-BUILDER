@@ -29,7 +29,7 @@ describe('CreateTemplate', () => {
   beforeEach(() => {
     vi.resetAllMocks();
 
-    (useCreateTemplate as vi.Mock).mockReturnValue({
+    (useCreateTemplate as any).mockReturnValue({
       onUpdateTemplateSectionDataDetail: mockOnUpdateTemplateSectionDataDetail,
       onUpdateFormValue: mockOnUpdateFormValue,
       templateSectionDataDetail: {
