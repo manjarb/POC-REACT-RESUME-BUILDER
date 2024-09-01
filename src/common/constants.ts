@@ -155,7 +155,6 @@ export interface IBasicTemplateCombineData extends IBasicFormUserData {
   education: IUserEducation[];
   experiences: IUserExperience[];
   certifications: IUserCertification[];
-  references: IUserRef[];
   skills: IUserSkill[];
 }
 
@@ -168,5 +167,38 @@ export const defaultEducation = [
     startDate: 'Start date',
     endDate: 'End date',
     description: 'Your degree detail',
+  },
+];
+
+export const defaultExperience = [
+  {
+    title: 'Position Name',
+    company: 'Company Name',
+    location: 'Company Location',
+    startDate: 'Start date',
+    endDate: 'End Date',
+    description: 'Job duty',
+  },
+];
+
+export const defaultCertification = [
+  {
+    name: 'Certification Name',
+    date: 'Obtain date',
+  },
+];
+
+export const defaultSkills = [
+  {
+    name: 'Skill 1',
+    score: 10,
+  },
+  {
+    name: 'Skill 2',
+    score: 9,
+  },
+  {
+    name: 'Skill 3',
+    score: 8,
   },
 ];
