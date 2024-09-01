@@ -76,3 +76,7 @@ $max-widths: 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600
   margin-left: auto;
   margin-right: auto;
 }
+
+.min-full-height {
+  min-height: 100vh;
+}

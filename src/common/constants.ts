@@ -140,3 +140,33 @@ export interface IUserData {
   linkedin: string;
   skills: IUserSkill[];
 }
+
+export interface IBasicFormUserData {
+  templateId: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  linkedin: string;
+  address: string;
+  description?: string;
+}
+
+export interface IBasicTemplateCombineData extends IBasicFormUserData {
+  education: IUserEducation[];
+  experiences: IUserExperience[];
+  certifications: IUserCertification[];
+  references: IUserRef[];
+  skills: IUserSkill[];
+}
+
+export const defaultEducation = [
+  {
+    degree: 'Degree name',
+    major: 'Major name',
+    university: 'University name',
+    location: 'location',
+    startDate: 'Start date',
+    endDate: 'End date',
+    description: 'Your degree detail',
+  },
+];

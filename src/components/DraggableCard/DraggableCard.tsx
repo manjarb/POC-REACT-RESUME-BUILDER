@@ -77,7 +77,9 @@ export default function DraggableCard({
     <div
       ref={(node) => drag(drop(node))}
       id={id}
-      className={`${classes.draggableCard} ${isDragging ? classes.dragging : ''}`}
+      className={`${classes.draggableCard} ${
+        isDragging ? classes.dragging : ''
+      }`}
     >
       <div className={classes.draggableCardHeader} onClick={toggleExpand}>
         <div className={classes.draggableCardContent}>
@@ -86,20 +88,22 @@ export default function DraggableCard({
             <p className={classes.draggableCardSubtitle}>{subtitle}</p>
           )}
         </div>
-        {showDelete && (
-          <Button size="sm" variant="danger" onClick={onDelete}>
-            Remove
-          </Button>
-        )}
-        {showArrow && (
-          <div
-            className={`${classes.draggableCardArrow} ${
-              expanded ? classes.expanded : ''
-            }`}
-          >
-            {expanded ? '▲' : '▼'}
-          </div>
-        )}
+        <div>
+          {showDelete && (
+            <Button size="sm" variant="danger" onClick={onDelete}>
+              Remove
+            </Button>
+          )}
+          {showArrow && (
+            <div
+              className={`${classes.draggableCardArrow} ${
+                expanded ? classes.expanded : ''
+              }`}
+            >
+              {expanded ? '▲' : '▼'}
+            </div>
+          )}
+        </div>
       </div>
       {expanded && children && (
         <div className={classes.draggableCardBody}>{children}</div>

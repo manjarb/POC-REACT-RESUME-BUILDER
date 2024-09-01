@@ -3,7 +3,6 @@ import {
   Font,
   Image,
   Page,
-  Styles,
   StyleSheet,
   Text,
   View,
@@ -34,7 +33,7 @@ import LocationIcon from '/assets/icons/location_icon.png';
 
 interface IBasicTemplateProps {
   templateData: ITemplateSectionDataDetail;
-  userData: IUserData;
+  userData: Partial<IUserData>;
 }
 
 Font.register({
@@ -193,13 +192,13 @@ export default function BasicTemplate({
   const LeftContent = ({ section }: { section: TemplateSection }) => {
     switch (section) {
     case TemplateSection.DESCRIPTION:
-      return (
+      return description ? (
         <View style={pageStyle.sectionBox}>
           <BasicSummary text={description} baseFontSize={baseFontSize} />
         </View>
-      );
+      ) : null;
     case TemplateSection.EXPERIENCES:
-      return (
+      return experiences && experiences.length > 0 ? (
         <View style={pageStyle.sectionBox}>
           <BasicExperience
             baseFontSize={baseFontSize}
@@ -207,9 +206,9 @@ export default function BasicTemplate({
             experiences={experiences}
           />
         </View>
-      );
+      ) : null;
     case TemplateSection.EDUCATION:
-      return (
+      return education && education.length > 0 ? (
         <View style={pageStyle.sectionListBox}>
           <BasicEducation
             baseFontSize={baseFontSize}
@@ -217,7 +216,7 @@ export default function BasicTemplate({
             educations={education}
           />
         </View>
-      );
+      ) : null;
     default:
       break;
     }
@@ -228,18 +227,18 @@ export default function BasicTemplate({
     switch (section) {
     case TemplateSection.CERTIFICATIONS:
       return (
-        <View style={pageStyle.sectionBox}>
+        certifications && certifications.length > 0 ? <View style={pageStyle.sectionBox}>
           <BasicCertification
             baseFontSize={baseFontSize}
             certifications={certifications}
           />
-        </View>
+        </View> : null
       );
     case TemplateSection.SKILLS:
       return (
-        <View style={pageStyle.sectionBox}>
+        skills && skills.length > 0 ? <View style={pageStyle.sectionBox}>
           <BasicSkill baseFontSize={baseFontSize} skills={skills} />
-        </View>
+        </View> : null
       );
     default:
       break;
@@ -258,33 +257,39 @@ export default function BasicTemplate({
               <Text style={pageStyle.headerTitle}>
                 {firstName} {lastName}
               </Text>
-              {experiences.length > 0 && (
+              {experiences && experiences.length > 0 && (
                 <Text style={pageStyle.subtitle}>{experiences[0].title}</Text>
               )}
               <View style={pageStyle.iconContainer}>
-                <View style={pageStyle.iconWrap}>
-                  <IconBox
-                    title={email}
-                    icon={EmailIcon}
-                    fontSize={iconFontSize}
-                  />
-                </View>
+                {email && (
+                  <View style={pageStyle.iconWrap}>
+                    <IconBox
+                      title={email}
+                      icon={EmailIcon}
+                      fontSize={iconFontSize}
+                    />
+                  </View>
+                )}
 
-                <View style={pageStyle.iconWrap}>
-                  <IconBox
-                    title={linkedin}
-                    icon={LinkIcon}
-                    fontSize={iconFontSize}
-                  />
-                </View>
+                {linkedin && (
+                  <View style={pageStyle.iconWrap}>
+                    <IconBox
+                      title={linkedin}
+                      icon={LinkIcon}
+                      fontSize={iconFontSize}
+                    />
+                  </View>
+                )}
 
-                <View style={pageStyle.iconWrap}>
-                  <IconBox
-                    title={address}
-                    icon={LocationIcon}
-                    fontSize={iconFontSize}
-                  />
-                </View>
+                {address && (
+                  <View style={pageStyle.iconWrap}>
+                    <IconBox
+                      title={address}
+                      icon={LocationIcon}
+                      fontSize={iconFontSize}
+                    />
+                  </View>
+                )}
               </View>
             </View>
           </View>

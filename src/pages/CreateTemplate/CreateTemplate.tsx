@@ -1,5 +1,6 @@
 import { PDFViewer } from '@react-pdf/renderer';
 import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 
 import Button from '../../components/Button/Button';
 import BasicTemplate from '../../components/Templates/BasicTemplate/BasicTemplate';
@@ -29,8 +30,15 @@ export default function CreateTemplate() {
         <div className="col">
           <div className="p-l-20">
             <div className={`${classes.titleBox} m-b-15`}>
+              <Link to="/">
+                <Button variant="link">Back</Button>
+              </Link>
               <h3>Create Template</h3>
-              <Button variant='success' onClick={saveTemplate}>Save</Button>
+
+              <Button variant="success" onClick={saveTemplate}>
+                  Save
+              </Button>
+
             </div>
             {memoForm}
             <div className="m-t-15 p-b-50">
