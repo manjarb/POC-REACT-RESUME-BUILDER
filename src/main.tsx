@@ -1,28 +1,41 @@
-import { StrictMode } from 'react';
+import { lazy,StrictMode, Suspense } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import CreateResume from './pages/CreateResume/CreateResume';
-import CreateTemplate from './pages/CreateTemplate/CreateTemplate';
-import HomePage from './pages/HomePage/HomePage';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './scss/main.scss';
+
+// Lazy load the components
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const CreateTemplate = lazy(() => import('./pages/CreateTemplate/CreateTemplate'));
+const CreateResume = lazy(() => import('./pages/CreateResume/CreateResume'));
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomePage />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <HomePage />
+      </Suspense>
+    ),
   },
   {
     path: '/templates/create',
-    element: <CreateTemplate />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <CreateTemplate />
+      </Suspense>
+    ),
   },
   {
     path: '/resumes/create',
-    element: <CreateResume />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <CreateResume />
+      </Suspense>
+    ),
   },
 ]);
 

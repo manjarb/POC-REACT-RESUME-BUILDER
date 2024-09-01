@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { capitalizeFirstLetter } from '../../../../common/utils/string.util';
+import { capitalizeFirstLetter } from '../../../../common/utils/string/string.util';
 import Button from '../../../../components/Button/Button';
 import DraggableCard from '../../../../components/DraggableCard/DraggableCard';
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDrop } from 'react-dnd';
 
 import { DragElement } from '../../../../common/constants';
-import { arrayMove } from '../../../../common/utils/array.util';
+import { arrayMove } from '../../../../common/utils/array/array.util';
 
 interface UseCreateTemplateSectionAreaProps {
   availableSections: string[];
